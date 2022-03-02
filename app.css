@@ -1,0 +1,27 @@
+h1 {
+    text-align: left;
+    font-size: 1.5em;
+    color: rgb(2, 40, 145);
+    margin-bottom: .5em;
+    text-decoration: underline;
+    padding: 0.2em;
+  }
+
+label {
+    text-align: left;
+    font-size: 1em;
+    color:rgb(1, 40, 99);
+    margin-bottom: .5em;
+    font-weight: bold;
+}
+
+fieldset {
+    border: 0.2em solid rgb(3, 19, 117);
+    width: 30em;
+    background:rgb(222, 234, 243);
+    padding: 1em;
+}
+
+.is-hidden {
+    display: none;
+}

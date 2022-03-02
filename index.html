@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <link href="app.css" rel="stylesheet">
+</head>
+<body>
+    <h1>NICU Calculations</h1>
+    <form onsubmit="calculate(event)">
+        <fieldset>
+            <div>
+                <label for="weight">
+                    Weight (grams):
+                </label>
+                <input id="weight" type="number" required>
+            </div>
+            <br>
+            <div>
+                <label for="volume"> 
+                    Volume (ml/kg):
+                </label>
+                <!-- testing default -->
+                <input id="volume" type="number" value="150" required>
+            </div>
+            <br>
+            <div>
+                <input type="radio" id="isFormula" name="diet" value="formula" checked onchange="onDietChange(event)">
+                <label for="isFormula">
+                    Formula
+                </label>
+
+                <input type="radio" id="isMothersMilk" name="diet" value="mothersMilk" onchange="onDietChange(event)">
+                <label for="isMothersMilk">
+                    Mother's Milk
+                </label>
+
+                <input type="radio" id="isDonorMilk" name="diet" value="donorMilk" onchange="onDietChange(event)">
+                <label for="isDonorMilk">
+                    Donor Milk
+                </label>
+            </div>
+            <br>
+            <div id="formulaFields">
+                <label for="formula">
+                    Formula:
+                </label>
+                <select id="formula" onchange="onFormulaChange(event)">
+                </select>
+                <label for="kcal" style="margin-left:10px">
+                    Kcal:
+                </label>
+                <select id="kcal"> 
+                </select>
+            </div>
+            <div id="mothersMilkFields" class="is-hidden">
+                <input type="radio" id="isPremature" name="mothersMilkType" value="premature" checked>
+                <label for="isPreterm">
+                    Premature
+                </label>
+
+                <input type="radio" id="isMature" name="mothersMilkType" value="mature">
+                <label for="isMature">
+                    Mature
+                </label>
+            </div>
+        </fieldset>
+        <br>
+        <div>
+            <button type="submit">Calculate</button>
+        </div>
+        <br>
+        <div>
+            <label>
+                Results:
+            </label>
+            <p id="resultKcal"></p>
+            <p id="resultProtein"></p>
+            <p id="resultIron"></p>
+            <p id="resultVitD"></p>
+        </div>
+    </form>
+    <script src="/app.js"></script>
+</body>
