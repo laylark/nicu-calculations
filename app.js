@@ -25,26 +25,68 @@ const formulas = {
     },
 };
 
+const fortifiers = {
+    prolacta: {
+        label: 'Prolacta',
+        kcalOptions: [24, 26, 28, 30],
+        preterm: {
+            protein: [.025, .029, .034, .038],
+        },
+        term: {
+            protein: [.019, .024, .029, .035],
+        },
+    },
+    sHMF: {
+        label: 'Similac HMF',
+        kcalOptions: [22, 24],
+        preterm: {
+            protein: [],
+            iron: [],
+            vitD: [],
+        },
+        term: {
+            protein: [],
+            iron: [],
+            vitD: [],
+        },
+    },
+};
+
+load();
+
 function load() {
     const formulaElement = document.getElementById("formula");
     for (const key in formulas) {
-        const option = document.createElement("option");
+        let option = document.createElement("option");
         option.text = formulas[key].label;
         option.value = key;
         formulaElement.add(option);
     }
 
+    const fortifierElement = document.getElementById("humanMilkFortifier");
+    for (const key in fortifiers) {
+        let option = document.createElement("option");
+        option.text = fortifiers[key].label;
+        option.value = key;
+        fortifierElement.add(option);
+    }
+
     // Create fake event to call onFormulaChange to load kcalOptions.
-    const fakeEvent = {
+    const fakeFormulaEvent = {
         target: {
             value: formulaElement.value,
         },
     };
 
-    onFormulaChange(fakeEvent);
-}
+    const fakeFortifierEvent = {
+        target: {
+            value: fortifierElement.value,
+        },
+    };
 
-load();
+    onFormulaChange(fakeFormulaEvent);
+    onFortifierChange(fakeFortifierEvent);
+}
 
 function onFormulaChange(event) {
     const formulaKey = event.target.value;
@@ -54,13 +96,31 @@ function onFormulaChange(event) {
 
     kcalElement.innerHTML = "";
     for (const item of kcalOptions) {
-        const option = document.createElement("option");
+        let option = document.createElement("option");
         if (currentKcalValue === item) {
             option.selected = "selected";
         }
         option.text = item;
         option.value = item;
         kcalElement.add(option);
+    }
+}
+
+function onFortifierChange(event) {
+    const fortifierKey = event.target.value;
+    const fortifierKcalOptions = fortifiers[fortifierKey].kcalOptions;
+    const fortifierKcalElement = document.getElementById("fortifierKcal");
+    const currentKcalValue = parseInt(fortifierKcalElement.value);
+
+    fortifierKcalElement.innerHTML = "";
+    for (const item of fortifierKcalOptions) {
+        let option = document.createElement("option");
+        if (currentKcalValue === item) {
+            option.selected = "selected";
+        }
+        option.text = item;
+        option.value = item;
+        fortifierKcalElement.add(option);
     }
 }
 

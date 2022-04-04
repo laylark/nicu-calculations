@@ -1,8 +1,19 @@
+body {
+    margin: 0;
+    font-family: 'Overpass', sans-serif;
+    color: #FFFFFF;
+    background-image: linear-gradient(115deg, rgba(128, 91, 230, 0.7), rgba(75, 19, 230, 0.6)), url(images/neonate.jpg);
+    background-size: cover;
+    background-position: center;
+    line-height: 1.5;
+    font-size: 1.2em;
+    text-align: center;
+    padding: 0 2em;
+    background-attachment: fixed;
+}
 h1 {
-    text-align: left;
-    font-size: 1.5em;
-    color: rgb(2, 40, 145);
-    margin-bottom: .5em;
+    font-size: 2em;
+    padding-bottom: .5em;
     text-decoration: underline;
     padding: 0.2em;
   }
@@ -10,18 +21,39 @@ h1 {
 label {
     text-align: left;
     font-size: 1em;
-    color:rgb(1, 40, 99);
-    margin-bottom: .5em;
+    color:rgb(255, 255, 255);
+    padding-bottom: .5em;
     font-weight: bold;
 }
 
 fieldset {
-    border: 0.2em solid rgb(3, 19, 117);
-    width: 30em;
-    background:rgb(222, 234, 243);
+    border: 0.2em solid rgba(56, 3, 117, 0.6);
+    background:rgba(78, 2, 150, 0.6);
+    border-radius: 0.5em;
     padding: 1em;
 }
-
+.results {
+    text-align: left;
+}
+.button {
+    background:rgba(9, 224, 27, 0.8);
+    border: 0.5em solid rgba(rgba(9, 151, 16, 0.9));
+    border-radius: 0.5em;
+    color: white;
+    text-align: center;
+    padding: 0.5em 1em;
+    display: inline-block;
+    font-size: 1em;
+    font-weight: bold;
+}
 .is-hidden {
     display: none;
+}
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1em;
+    }
+    body {
+        font-size: 0.8em;
+    }
 }

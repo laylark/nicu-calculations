@@ -24,12 +24,12 @@
             </div>
             <br>
             <div>
-                <input id="isFormula" type="radio" name="diet" value="formula" checked onchange="onDietChange(event)" />
+                <input id="isFormula" type="radio" name="diet" value="formula" onchange="onDietChange(event)" />
                 <label for="isFormula">
                     Formula
                 </label>
 
-                <input id="isMothersMilk" type="radio" name="diet" value="mothersMilk" onchange="onDietChange(event)" />
+                <input id="isMothersMilk" type="radio" name="diet" value="mothersMilk" checked onchange="onDietChange(event)" />
                 <label for="isMothersMilk">
                     Mother's Milk
                 </label>
@@ -40,7 +40,7 @@
                 </label>
             </div>
             <br>
-            <div id="formulaFields">
+            <div id="formulaFields" class="is-hidden">
                 <label for="formula">
                     Formula:
                 </label>
@@ -53,24 +53,39 @@
                 <select id="kcal"> 
                 </select>
             </div>
-            <div id="mothersMilkFields" class="is-hidden">
-                <input id="isPremature" type="radio" name="mothersMilkType" value="premature" checked />
-                <label for="isPremature">
-                    Premature
-                </label>
+            <div id="mothersMilkFields">
+                <div>
+                    <input id="isPremature" type="radio" name="mothersMilkType" value="premature" checked />
+                    <label for="isPremature">
+                        Premature
+                    </label>
 
-                <input id="isMature" type="radio" name="mothersMilkType" value="mature" />
-                <label for="isMature">
-                    Mature
-                </label>
+                    <input id="isMature" type="radio" name="mothersMilkType" value="mature" />
+                    <label for="isMature">
+                        Mature
+                    </label>
+                </div>
+                <br />
+                <div>
+                    <label>
+                        Fortification:
+                    </label>
+                    <select id="humanMilkFortifier" onchange="onFortifierChange(event)">
+                    </select>
+                    <label style="margin-left:10px">
+                        Kcal:
+                    </label>
+                    <select id="fortifierKcal">
+                    </select>
+                </div>
             </div>
         </fieldset>
         <br>
         <div>
-            <button type="submit">Calculate</button>
+            <button type="submit" class="button">Calculate</button>
         </div>
         <br>
-        <div>
+        <div class="results">
             <h3>Results:</h3>
             <p id="resultKcal"></p>
             <p id="resultProtein"></p>
